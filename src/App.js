@@ -1,23 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
+import react, { useEffect, useState } from "react";
+import axios from "axios";
 
 function App() {
+  const [data, setData] = useState([]);
+  const [error, setError] = useState("");
+  useEffect(() => {
+    console.log("fetching data");
+    //letak dari kita pasang axios
+    axios
+      .get(" https://pokeapi.co/api/v2/pokemon/ditto")
+      .then((res) => {
+        console.log(res.data.abilities[0].ability.name);
+        setData(res.data.abilities[0].ability.name);
+      })
+      .catch((err) => {
+        console.log(err);
+        console.log("Data Pokemon gak ketemu");
+        setError("Data Pokemon gak ketemu");
+      });
+  }, []);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h3>{data}</h3>
+      <h3>{error}</h3>
     </div>
   );
 }
