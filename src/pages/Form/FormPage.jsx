@@ -62,6 +62,7 @@ export default function FormPage() {
         <br />
         <br />
         <input type="submit" value="Submit" />
+        {/* {data.judul} */}
       </form>
     </>
   );

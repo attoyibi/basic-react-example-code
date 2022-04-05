@@ -2,25 +2,27 @@ import React from "react";
 import { render, screen, fireEvent } from "@testing-library/react";
 import FormPage from "./FormPage";
 
-describe("FormPage", () => {
-  test("renders App component", () => {
+describe("FormPage Text", () => {
+  test("text Formulir", () => {
     render(<FormPage />);
-    // screen.debug();
-    expect(screen.getByText("Formulir Buku Baru Test")).toBeInTheDocument();
-    expect(screen.getByText(/Judul/)).toBeInTheDocument();
-    expect(screen.getByText(/Pengarang/)).toBeInTheDocument();
+    expect(screen.getByText(/Formulir Buku Baru Test/i)).toBeInTheDocument();
   });
-  //event
-  test("Input Text Testing", () => {
+  test("text label", () => {
     render(<FormPage />);
-    // screen.debug();
+    expect(screen.getByText(/Judul/i)).toBeInTheDocument();
+    expect(screen.getByText(/Pengarang/i)).toBeInTheDocument();
+  });
+});
+
+describe("Event Handler FormPage", () => {
+  test("Form Judul", () => {
+    render(<FormPage />);
     fireEvent.input(screen.getByRole("textbox", { name: /judul/i }), {
       target: { value: "Buku Hebat" },
     });
-    // fireEvent.input(screen.getByRole("textbox", { name: /pengarang/i }), {
-    //   target: { value: "Pengarang Kampus Merdeka" },
-    // });
-    // expect(screen.getByText("Buku Hebat")).toBeInTheDocument();
-    // expect(screen.getByText(/Pengarang Kampus Merdeka/)).toBeInTheDocument();
+    fireEvent.input(screen.getByRole("textbox", { name: /pengarang/i }), {
+      target: { value: "Kampus Merdeka" },
+    });
+    expect(screen.getByText(/Buku Hebat/i)).toBeInTheDocument();
   });
 });
