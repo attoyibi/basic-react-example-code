@@ -158,3 +158,12 @@ input[type="text"] {
 .todo-list:empty + .empty-state {
   display: flex;
 }
+.red{
+  color:red;
+}
+.yellow{
+  color:yellow;
+}
+.background{
+  background-color:red;
+}
