@@ -1,24 +1,18 @@
-import React, {useState, useEffect} from 'react'
-import style from './App.module.css' 
-import Header from './header.jsx'
-// import './App.css' 
+// App.js
 
-export default function App() {
-  const [nama, setNama] = useState("muchson");
-  const handleClick = () =>{
-    setNama("hai")
+import React, { Component } from 'react';
+import Hoc from './HOC';
+import StockList from './StockList';
+class App extends Component {
+  
+  render() {
+    return (
+      <div>
+        Higher-Order Component Tutorial
+        <StockList></StockList>
+      </div>
+    )
   }
-  // didmound di dalam
-  useEffect(()=>{
-    console.log("use Effect didMount")
-  },[])
-
-  // let nama = "muchson";
-  let status = true;
-  return (
-    <>
-    <Header data={nama} dataStatus={status}/>
-    <div onClick={handleClick} style={status ? {border: '1px solid green '}: {border: '1px solid red '}} className={style.yellow}>{nama}</div>
-    </>
-  )
 }
+App = Hoc(App);
+export default App;
