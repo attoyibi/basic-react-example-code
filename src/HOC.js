@@ -5,7 +5,7 @@ export default function Hoc(HocComponent){
     return class extends Component{
         render(){
             return (
-                <div style={{backgroundColor: "red"}}>
+                <div>
                     <HocComponent></HocComponent>
                 </div>
             );

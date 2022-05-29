@@ -6,7 +6,6 @@ import StockList from './StockList';
 import UserList from './UserList';
 
 
-
 const Stocks = Hoc(
   StockList,
 );
