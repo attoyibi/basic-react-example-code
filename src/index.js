@@ -2,19 +2,15 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 // import App from './App';
-import AppClass from 'AppClass';
+import App from 'App';
 import reportWebVitals from './reportWebVitals';
-import client from './apollo-client';
-import { ApolloProvider } from '@apollo/client';
 
 
 ReactDOM.render(
-  <ApolloProvider client={client}>
     <React.StrictMode>
       {/* <App data="data dari index" /> */}
-      <AppClass data="data dari index" />
-    </React.StrictMode>
-  </ApolloProvider>,
+      <App data="data dari index" />
+    </React.StrictMode>,
   document.getElementById('root')
 );
 
