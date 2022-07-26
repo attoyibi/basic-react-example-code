@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import './App.css';
 import Todo from 'components/Todo';
 import { gql, useQuery, useLazyQuery } from '@apollo/client';
 import { scryRenderedComponentsWithType } from 'react-dom/test-utils';
@@ -49,7 +48,7 @@ function TodoList() {
       <div className='container'>
         <h1 className='app-title'>todos</h1>
         <ul className='todo-list js-todo-list'>
-          {list.map((v, i) => (
+          {data?.todolist.map((v, i) => (
             <Todo
               key={i}
               id={i}
