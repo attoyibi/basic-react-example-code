@@ -2,7 +2,7 @@ import { useState } from 'react';
 import Todo from 'components/Todo';
 import { gql, useQuery, useLazyQuery } from '@apollo/client';
 import { scryRenderedComponentsWithType } from 'react-dom/test-utils';
-
+import "./App.css"
 const GetTodo = gql `
 query MyQuery2 {
   todolist {

@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import style from './App.module.css' 
 import Header from './header.jsx'
-// import './App.css' 
+import './App.css' 
 
 export default function App() {
   const [nama, setNama] = useState("muchson");
