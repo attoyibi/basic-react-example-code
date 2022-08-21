@@ -7,10 +7,10 @@ import reportWebVitals from "./reportWebVitals";
 // import store from "./redux/store";
 import { Provider } from "react-redux";
 //redux persist
-import { PersistGate } from "redux-persist/integration/react";
-// import { store, persistor } from "./redux/configureStore";
-import configureStore from "./redux/configureStore";
-let { store, persistor } = configureStore();
+import { PersistGate } from "redux-persist/integration/react"; //persistgate untuk keperluan redux persist
+import configureStore from "./redux/configureStore"; // mengambil dari file configureStore.js
+let { store, persistor } = configureStore(); // destructuring dari configureStore.js
+
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
