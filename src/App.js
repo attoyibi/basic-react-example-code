@@ -9,13 +9,17 @@ export default function App() {
   useEffect(() => {
     count.current = count.current + 1;
     console.log("refNames.current", refName.current.value); //cara mendapatkan data dari form input
-    console.log("count.current", count); //coba cek di console bahwa ref itu terdiri dari 2 hal, hal pertama berupa property current yang biasanya berisi data. dan akan ada data lement yang terdapat dapam methodnya
+    console.log("count.current", count); //coba cek di console bahwa ref itu terdiri dari 2 hal, hal pertama berupa property current yang biasanya berisi data. dan akan ada data element yang terdapat methodnya
   });
 
   function setClickForm(e) {
     e.preventDefault();
 
-    console.log("refNames.current", refName.current.value); //cara mendapatkan data dari form input
+    console.log("refNames.current", refName.current.value); //cara mendapatkan data dari form input. cara ini juga dapat digunakan untuk melakukan validasi apakah data yang masukkan sudah benar atau tidak
+    //contoh validasi dmenggunakan refNames.current
+    if (refName.current.value === "") {
+      alert("data tidak boleh kosong");
+    }
   }
 
   return (
