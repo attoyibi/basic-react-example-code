@@ -12,14 +12,16 @@ const auth0Domain = "dev-4o8ewg0o.us.auth0.com"; //domain yang di ambil dari aut
 const auth0ClientId = "JNRrYasvIVC1ssme1myjFykmuVVOFPu1"; //diambil dari auth0
 const auth0Audience = "example-blog-hasura";
 
-const hasuraUri = "http://localhost:8080/v1/graphql";
+const hasuraUri = "https://fleet-silkworm-14.hasura.app/v1/graphql";
 
 // This code ensures that the access token from Auth0 is passed into the headers of each
 // request made by Apollo.  See:
 // https://community.auth0.com/t/how-to-use-react-auth0-spa-with-graphql/30516/4
 
 const AuthorizedApolloProvider = ({ children }) => {
-  const { getAccessTokenSilently, isLoading, isAuthenticated } = useAuth0();
+  const { getAccessTokenSilently, isLoading, isAuthenticated, user } =
+    useAuth0();
+  console.log("user", user);
 
   if (isLoading) {
     return <div>Loading...</div>;
@@ -34,6 +36,9 @@ const AuthorizedApolloProvider = ({ children }) => {
         return {
           headers: {
             Authorization: `Bearer ${token}`,
+            "x-hasura-admin-secret":
+              "nU5COF59xmHuILUdw0Y3qvKEYnkMSEU7UKgHA3y0fBE7Ny3akqvZusRNF8SiS2KE",
+            // "x-hasura-role": "user",
           },
         };
       } else {
