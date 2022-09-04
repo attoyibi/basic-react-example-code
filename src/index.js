@@ -7,8 +7,8 @@ import { Auth0Provider } from "@auth0/auth0-react";
 
 ReactDOM.render(
   <Auth0Provider
-    domain="dev-4o8ewg0o.us.auth0.com"
-    clientId="JNRrYasvIVC1ssme1myjFykmuVVOFPu1"
+    domain="dev-4o8ewg0o.us.auth0.com" // gantilah dengan domain yang ada pada  auth0 kalian
+    clientId="JNRrYasvIVC1ssme1myjFykmuVVOFPu1" // gantilah pada cliendID yang ada pada auth0 kalian
     redirectUri={window.location.origin}
   >
     <App />
