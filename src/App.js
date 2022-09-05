@@ -6,10 +6,14 @@ import { useAuth0 } from "@auth0/auth0-react";
 
 export default function App() {
   //tempat logic dalam component digunakan
-  const { user, isAuthenticated, isLoading } = useAuth0();
-
-  if (isLoading) {
-    return <div>Loading ...</div>;
+  const { user, isAuthenticated, isLoading, getAccessTokenSilently } =
+    useAuth0();
+  if (isAuthenticated) {
+    console.log(
+      getAccessTokenSilently().then((token) => {
+        console.log(token);
+      })
+    );
   }
   return (
     // semua hal dalam return akan di render
