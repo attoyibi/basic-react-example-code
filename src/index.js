@@ -4,12 +4,14 @@ import ReactDOM from "react-dom";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { Auth0Provider } from "@auth0/auth0-react";
-
+const auth0Audience = "https://hasura.io/learn"; //isi didapatkan dari api auth0 yang kalaian buat
 ReactDOM.render(
   <Auth0Provider
     domain="dev-4o8ewg0o.us.auth0.com" // gantilah dengan domain yang ada pada  auth0 kalian. karena domain ini punyak orang lain
     clientId="JNRrYasvIVC1ssme1myjFykmuVVOFPu1" // gantilah pada cliendID yang ada pada auth0 kalian. karena client id ini punyak orang lain
     redirectUri={window.location.origin}
+    cacheLocation="localstorage"
+    audience={auth0Audience}
   >
     <App />
   </Auth0Provider>,
